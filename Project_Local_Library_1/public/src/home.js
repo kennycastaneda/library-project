@@ -75,9 +75,7 @@ function getMostPopularAuthors(books, authors) {
 
   authorPopularity = authors.map((author)=>{//go through the list of authors
     let booksByAuthor = bookPopularity.filter((bookAuthor) => bookAuthor.authorId === author.id); // find books of the author
-    //let bookCounts = booksByAuthor;
-    //console.log(bookCounts);
-    let totalCount = booksByAuthor.reduce((total, bookByAuthor) => total + bookByAuthor.count);
+    let totalCount = booksByAuthor.reduce((total, bookByAuthor) => total + bookByAuthor.count);//not sure why this doens't return a number
     authorBookCount = {'name':`${author.name.first} ${author.name.last}`, 'count':totalCount.count};//create the object of the author with their total count from their books
     return authorBookCount;//push the object to the array of authors 
   });
